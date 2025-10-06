@@ -47,7 +47,7 @@ api_key = os.environ.get("ALPHAVANTAGE_API_KEY")
 
 (The script already imports `os`). 
 
-## ▶️ How to run
+##  How to run
 
 ```bash
 python main.py
@@ -60,7 +60,7 @@ python main.py
 - `asset_data/*.csv` — cached, preprocessed time series per asset (auto-created).  
 - `portfolio_backtest_summary.csv` — one row per strategy variant with metrics. 
 
-## 🧩 Code walkthrough (what each part does)
+##  Code walkthrough (what each part does)
 
 ### 1) Asset universe & data access
 - Assets list includes stocks (AAPL, MSFT, TSLA, AMZN), FX (EURUSD, USDJPY), and commodities (COPPER, NATURAL_GAS).
@@ -86,39 +86,39 @@ python main.py
 ### 7) Experiments driver
 - `run_portfolio_experiments(data_dict, abc_map)`: runs four variants — LSTM Only, +ABC, +EOQ, Full System.
 
-## 🗂️ Data & caching
+##  Data & caching
 
 - First run downloads full histories from Alpha Vantage and writes per-symbol CSVs.  
 - Subsequent runs load from cache to avoid rate limits. 
 
-## 📈 Outputs
+##  Outputs
 
 - `portfolio_backtest_summary.csv` — Portfolio-level metrics per strategy variant.  
 - Optional matplotlib plots for feature importance (commented out). 
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 - **API rate limits / empty frames**: use cached CSVs.  
 - **Shape mismatches in LSTM**: check rolling window drops.  
 - **Secrets in code**: replace hardcoded API key with env variable. 
 
-## 🧪 Reproducibility notes
+##  Reproducibility notes
 
 - LSTM uses small epoch count, no fixed seeds (run-to-run variation).  
 - Commodity series are monthly — consider resampling others for alignment. 
 
-## 🧭 Suggested extensions
+##  Suggested extensions
 
 - Config file (YAML/JSON) for assets and hyperparameters.  
 - Bayesian optimization (e.g., Optuna).  
 - Risk controls, better transaction cost modeling.  
 - Unified resampling for mixed-frequency assets. 
 
-## 📚 Background / Citation
+##  Background / Citation
 
 If you use or extend this codebase in academic or industrial work, please cite the research write-up *Inventory Stock* and reference the implementation (`main.py`).
 
-## 📝 License
+##  License
 
 Add your preferred license (e.g., MIT) here.
 
@@ -139,3 +139,4 @@ python main.py
 # 4) Inspect results
 cat portfolio_backtest_summary.csv
 ```
+
